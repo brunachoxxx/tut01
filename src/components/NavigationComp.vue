@@ -2,7 +2,7 @@
   <nav>
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
-        <v-tollbar-side-icon @click="drawer = !drawer"></v-tollbar-side-icon>
+        <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       </div>
 
       <v-spacer></v-spacer>
@@ -22,7 +22,7 @@
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
-  name: "Navigation",
+  name: "NavigationComp",
   data: () => ({
     drawer: false,
   }),

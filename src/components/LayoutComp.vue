@@ -1,16 +1,16 @@
 import Vue from 'vue';
 <template>
-  <Navigation />
+  <NavigationComp />
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Navigation from "./Navigation.vue";
+import NavigationComp from "./NavigationComp.vue";
 
 export default Vue.extend({
-  name: "Layout",
+  name: "LayoutComp",
   components: {
-    Navigation,
+    NavigationComp,
   },
 });
 </script>
