@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-main>
+      <LayoutComp />
       <router-view />
     </v-main>
   </v-app>
@@ -8,11 +9,11 @@
 
 <script lang="ts">
 import Vue from "vue";
-import TopBar from "./components/TopBar.vue";
+import LayoutComp from "@/components/LayoutComp.vue";
 
 export default Vue.extend({
   name: "App",
-
+  components: { LayoutComp },
   data: () => ({
     //
   }),

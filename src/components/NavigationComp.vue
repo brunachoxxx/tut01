@@ -7,7 +7,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn>
+      <v-btn @click="$router.push('/')">
         <v-icon left>mdi-home</v-icon>
         <span>Home</span>
       </v-btn>
@@ -23,11 +23,16 @@
       <v-divider></v-divider>
 
       <v-list dense nav>
-        <v-list-item v-for="item in items" :key="item.title" link>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+          router
+          :to="item.path"
+        >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
-
           <v-list-item-content>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
@@ -39,14 +44,15 @@
 
 <script lang="ts">
 import Vue from "vue";
+import router from "../router/index";
 export default Vue.extend({
   name: "NavigationComp",
   data: () => ({
     drawer: false,
     items: [
-      { title: "Home", icon: "mdi-home" },
-      { title: "Chisiamo", icon: "mdi-group" },
-      { title: "About", icon: "mdi-help-box" },
+      { title: "Home", icon: "mdi-home", path: "/" },
+      { title: "Chisiamo", icon: "mdi-group", path: "/chisiamo" },
+      { title: "Contatti", icon: "mdi-help-box", path: "/contatti" },
     ],
   }),
 });
