@@ -44,7 +44,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import router from "../router/index";
 export default Vue.extend({
   name: "NavigationComp",
   data: () => ({
