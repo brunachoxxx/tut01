@@ -34,7 +34,7 @@
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title>{{ $t(item.title) }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -49,9 +49,9 @@ export default Vue.extend({
   data: () => ({
     drawer: false,
     items: [
-      { title: "Home", icon: "mdi-home", path: "/" },
-      { title: "Chisiamo", icon: "mdi-group", path: "/chisiamo" },
-      { title: "Contatti", icon: "mdi-help-box", path: "/contatti" },
+      { title: "home", icon: "mdi-home", path: "/" },
+      { title: "about", icon: "mdi-group", path: "/chisiamo" },
+      { title: "contact", icon: "mdi-help-box", path: "/contatti" },
     ],
   }),
 });
