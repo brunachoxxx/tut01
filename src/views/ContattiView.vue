@@ -19,6 +19,8 @@ export default Vue.extend({
         }, 5000);
       });
     },
+
+    handleButtonClick() {},
   },
 });
 </script>
