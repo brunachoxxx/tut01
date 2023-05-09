@@ -15,7 +15,7 @@
         <v-menu top :close-on-click="true">
           <template v-slot:activator="{ on, attrs }">
             <v-btn color="secondary" dark v-bind="attrs" v-on="on">
-              Lingua
+              {{ $i18n.locale }}
             </v-btn>
           </template>
 
