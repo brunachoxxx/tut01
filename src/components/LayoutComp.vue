@@ -1,5 +1,8 @@
 <template>
-  <NavigationComp />
+  <div>
+    <NavigationComp />
+    <router-view />
+  </div>
 </template>
 
 <script lang="ts">

@@ -9,8 +9,23 @@
 
       <v-btn @click="$router.push('/')">
         <v-icon left>mdi-home</v-icon>
-        <span>Home</span>
+        <span>{{ $t("home") }}</span>
       </v-btn>
+      <div class="text-center">
+        <v-menu top :close-on-click="true">
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn color="secondary" dark v-bind="attrs" v-on="on">
+              Lingua
+            </v-btn>
+          </template>
+
+          <v-list>
+            <v-list-item v-for="(lang, index) in langs" :key="index">
+              <v-list-item-title>{{ lang.name }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer">
@@ -52,6 +67,11 @@ export default Vue.extend({
       { title: "home", icon: "mdi-home", path: "/" },
       { title: "about", icon: "mdi-group", path: "/chisiamo" },
       { title: "contact", icon: "mdi-help-box", path: "/contatti" },
+    ],
+    langs: [
+      { name: "Italian", value: "it" },
+      { name: "French", value: "fr" },
+      { name: "English", value: "en" },
     ],
   }),
 });

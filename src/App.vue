@@ -2,7 +2,6 @@
   <v-app>
     <v-main>
       <LayoutComp />
-      <router-view />
     </v-main>
   </v-app>
 </template>
