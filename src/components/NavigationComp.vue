@@ -20,7 +20,11 @@
           </template>
 
           <v-list>
-            <v-list-item v-for="(lang, index) in langs" :key="index">
+            <v-list-item
+              v-for="(lang, index) in langs"
+              :key="index"
+              @click="changeLocale(lang.value)"
+            >
               <v-list-item-title>{{ lang.name }}</v-list-item-title>
             </v-list-item>
           </v-list>
@@ -74,5 +78,10 @@ export default Vue.extend({
       { name: "English", value: "en" },
     ],
   }),
+  methods: {
+    changeLocale(locale: string) {
+      this.$i18n.locale = locale;
+    },
+  },
 });
 </script>
