@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import ChisiamoView from "../views/ChisiamoView.vue";
 import ContattiView from "../views/ContattiView.vue";
+import GrigliaView from "../views/GrigliaView.vue";
 import NotFound from "../views/NotFound.vue";
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes: Array<RouteConfig> = [
     path: "/contatti",
     name: "contatti",
     component: ContattiView,
+  },
+  {
+    path: "/griglia",
+    name: "griglia",
+    component: GrigliaView,
   },
   {
     path: "*",

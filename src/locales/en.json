@@ -3,5 +3,6 @@
   "about": "About Us",
   "contact": "Contact",
   "fetch": "Fetch Data",
-  "loading": "Loading ..."
+  "loading": "Loading ...",
+  "grid": "Grid"
 }

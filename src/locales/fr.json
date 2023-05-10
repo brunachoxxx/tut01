@@ -3,5 +3,6 @@
   "about": "qui sommes-nous",
   "contact": "contactez-nous",
   "fetch": "Récupérer des données",
-  "loading": "Chargement ..."
+  "loading": "Chargement ...",
+  "grid": "Grille"
 }
