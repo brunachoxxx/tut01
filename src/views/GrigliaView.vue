@@ -3,6 +3,7 @@ import Vue from 'vue';
   <div class="about">
     <h1 class="text-center">{{ $t("grid") }}</h1>
     <ejs-grid
+      ref="grid"
       :dataSource="localData"
       :allowPaging="true"
       :pageSettings="pageSettings"
@@ -19,7 +20,7 @@ export default Vue.extend({
   data() {
     return {
       localData: dataDB,
-      pageSettings: { pageSize: 20 },
+      pageSettings: { pageSizes: true, pageSize: 20 },
       provide: {
         grid: [Page],
       },
