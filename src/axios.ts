@@ -5,14 +5,6 @@ const myAxiosInstance = axios.create({
   headers: { "X-Custom-Header": "BSS-AZIENDA=*" },
 });
 
-myAxiosInstance.interceptors.response.use(function (response) {
-  const isFail = Math.random() > 0.5;
-  if (isFail) {
-    return response;
-  }
-  throw new Error("random failure");
-});
-
 myAxiosInstance.interceptors.response.use(
   function (response) {
     return new Promise(function (resolve) {
@@ -29,5 +21,11 @@ myAxiosInstance.interceptors.response.use(
     });
   }
 );
-
+myAxiosInstance.interceptors.response.use(function (response) {
+  const isFail = Math.random() > 0.5;
+  if (isFail) {
+    return response;
+  }
+  return Promise.reject("Ramdon Error");
+});
 export default myAxiosInstance;

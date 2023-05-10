@@ -1,9 +1,12 @@
 <template>
   <div class="contact">
     <h1 class="text-center">{{ $t("contact") }}</h1>
-    <v-btn color="success" :disabled="isLoading" @click="handleButtonClick">{{
-      isLoading ? "loading..." : "Fetch Data"
-    }}</v-btn>
+    <v-btn
+      :color="isError ? 'red' : 'success'"
+      :disabled="isLoading"
+      @click="handleButtonClick"
+      >{{ isLoading ? "loading..." : "Fetch Data" }}</v-btn
+    >
     <v-alert
       v-if="showAlert"
       :color="isError ? 'red' : 'success'"
@@ -36,9 +39,9 @@ export default Vue.extend({
         let resp = await myAxiosInstance.get("todos");
         this.response = resp.data;
         this.isError = false;
-      } catch (err: any) {
+      } catch (err) {
         this.isError = true;
-        this.response = { msg: err.message };
+        this.response = { err };
       } finally {
         this.isLoading = false;
         this.showAlert = true;
