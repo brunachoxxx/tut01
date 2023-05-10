@@ -1,12 +1,11 @@
 import axios from "axios";
 
 const myAxiosInstance = axios.create({
-  url: "https://jsonplaceholder.typicode.com/users/1/todos",
-  method: "get",
+  baseURL: "https://jsonplaceholder.typicode.com/users/1/",
   headers: { "X-Custom-Header": "BSS-AZIENDA=*" },
 });
 
-const axisoDelay = myAxiosInstance.interceptors.response.use(
+myAxiosInstance.interceptors.response.use(
   function (response) {
     return new Promise(function (resolve) {
       setTimeout(function () {
@@ -23,4 +22,4 @@ const axisoDelay = myAxiosInstance.interceptors.response.use(
   }
 );
 
-export default axisoDelay;
+export default myAxiosInstance;

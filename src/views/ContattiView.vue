@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import axisoDelay from "../axios";
+import myAxiosInstance from "../axios";
 
 export default Vue.extend({
   data: function () {
@@ -27,7 +27,6 @@ export default Vue.extend({
       isError: false,
       showAlert: false,
       simulatedError: false,
-      apiR: "https://jsonplaceholder.typicode.com/users/1/todos",
     };
   },
 
@@ -37,11 +36,11 @@ export default Vue.extend({
       this.simulatedError = !this.simulatedError;
       try {
         if (this.simulatedError) throw new Error("request failed");
-        let resp = await axisoDelay;
-        this.response = resp;
-      } catch (error) {
+        let resp = await myAxiosInstance.get("todos");
+        this.response = resp.data;
+      } catch (err: any) {
         this.isError = true;
-        this.response = { error };
+        this.response = { msg: err.message };
       } finally {
         this.isLoading = false;
         this.showAlert = true;
