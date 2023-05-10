@@ -13,6 +13,7 @@ myAxiosInstance.interceptors.response.use(
       }, 5000);
     });
   },
+
   function (error) {
     return new Promise(function (reject) {
       setTimeout(function () {
@@ -21,6 +22,7 @@ myAxiosInstance.interceptors.response.use(
     });
   }
 );
+
 myAxiosInstance.interceptors.response.use(function (response) {
   const isFail = Math.random() > 0.5;
   if (isFail) {
@@ -28,4 +30,5 @@ myAxiosInstance.interceptors.response.use(function (response) {
   }
   return Promise.reject("Ramdon Error");
 });
+
 export default myAxiosInstance;
