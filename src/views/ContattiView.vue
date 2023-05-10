@@ -1,16 +1,16 @@
 <template>
   <div class="contact">
     <h1 class="text-center">{{ $t("contact") }}</h1>
-    <v-btn color="success" :disabled="isLoading" @click="handleButtonClick"
-      >text</v-btn
-    >
+    <v-btn color="success" :disabled="isLoading" @click="handleButtonClick">{{
+      isLoading ? "loading..." : "Fetch Data"
+    }}</v-btn>
     <v-alert
       v-if="showAlert"
       :color="isError ? 'red' : 'success'"
       icon="mdi-alert"
       :value="true"
     >
-      {{ isLoading ? "Loading ..." : response }}
+      {{ response }}
     </v-alert>
   </div>
 </template>
@@ -26,18 +26,16 @@ export default Vue.extend({
       response: {},
       isError: false,
       showAlert: false,
-      simulatedError: false,
     };
   },
 
   methods: {
     async handleButtonClick() {
       this.isLoading = true;
-      this.simulatedError = !this.simulatedError;
       try {
-        if (this.simulatedError) throw new Error("request failed");
         let resp = await myAxiosInstance.get("todos");
         this.response = resp.data;
+        this.isError = false;
       } catch (err: any) {
         this.isError = true;
         this.response = { msg: err.message };
