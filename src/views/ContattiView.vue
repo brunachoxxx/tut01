@@ -6,18 +6,18 @@
     >
     <v-alert
       v-if="showAlert"
-      type="isError ? red : success"
+      :color="isError ? 'red' : 'success'"
       icon="mdi-alert"
       :value="true"
     >
-      {{ response }}
+      {{ isLoading ? "Loading ..." : response }}
     </v-alert>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import axios from "axios";
+import axisoDelay from "../axios";
 
 export default Vue.extend({
   data: function () {
@@ -33,18 +33,18 @@ export default Vue.extend({
 
   methods: {
     async handleButtonClick() {
-      this.simulatedError = !this.simulatedError;
       this.isLoading = true;
-      this.showAlert = true;
+      this.simulatedError = !this.simulatedError;
       try {
         if (this.simulatedError) throw new Error("request failed");
-        let response = await axios(this.apiR);
-        this.response = response;
+        let resp = await axisoDelay;
+        this.response = resp;
       } catch (error) {
         this.isError = true;
         this.response = { error };
       } finally {
         this.isLoading = false;
+        this.showAlert = true;
         setTimeout(() => {
           this.showAlert = false;
         }, 5000);
