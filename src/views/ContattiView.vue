@@ -1,20 +1,32 @@
 <template>
   <div class="contact">
     <h1 class="text-center">{{ $t("contact") }}</h1>
-    <v-btn
+
+    <!-- <v-btn
       :color="isError ? 'red' : 'success'"
       :disabled="isLoading"
       @click="handleButtonClick"
       >{{ isLoading ? $t("loading") : $t("fetch") }}</v-btn
+    > -->
+
+    <ejs-button
+      type="button"
+      :disabled="isLoading"
+      @click.native="handleButtonClick"
+      >{{ isLoading ? $t("loading") : $t("fetch") }}</ejs-button
     >
-    <v-alert
+    <ejs-dialog v-if="showAlert" showCloseIcon="true">{{
+      response
+    }}</ejs-dialog>
+
+    <!--  <v-alert
       v-if="showAlert"
       :color="isError ? 'red' : 'success'"
       icon="mdi-alert"
       :value="true"
     >
       {{ response }}
-    </v-alert>
+    </v-alert> -->
   </div>
 </template>
 
