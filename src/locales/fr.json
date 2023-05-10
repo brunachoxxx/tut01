@@ -1,5 +1,7 @@
 {
   "home": "Domicile",
   "about": "qui sommes-nous",
-  "contact": "contactez-nous"
+  "contact": "contactez-nous",
+  "fetch": "Récupérer des données",
+  "loading": "Chargement ..."
 }

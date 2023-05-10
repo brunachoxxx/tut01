@@ -1,5 +1,7 @@
 {
   "home": "Home",
   "about": "About Us",
-  "contact": "Contact"
+  "contact": "Contact",
+  "fetch": "Fetch Data",
+  "loading": "Loading ..."
 }

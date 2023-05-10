@@ -5,7 +5,7 @@
       :color="isError ? 'red' : 'success'"
       :disabled="isLoading"
       @click="handleButtonClick"
-      >{{ isLoading ? "loading..." : "Fetch Data" }}</v-btn
+      >{{ isLoading ? $t("loading") : $t("fetch") }}</v-btn
     >
     <v-alert
       v-if="showAlert"
