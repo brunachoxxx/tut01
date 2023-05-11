@@ -9,6 +9,7 @@
       :allowPaging="true"
       :pageSettings="pageSettings"
       :searchSettings="searchOptions"
+      :editSettings="editSettings"
       :toolbar="toolbarOptions"
     >
       <e-columns>
@@ -38,7 +39,14 @@
 <script lang="ts">
 import Vue from "vue";
 import { dataDB } from "../db";
-import { Page, Sort, Filter, Toolbar, Search } from "@syncfusion/ej2-vue-grids";
+import {
+  Page,
+  Sort,
+  Filter,
+  Toolbar,
+  Search,
+  Edit,
+} from "@syncfusion/ej2-vue-grids";
 
 export default Vue.extend({
   name: "GrigliaView",
@@ -54,6 +62,12 @@ export default Vue.extend({
         "CsvExport",
       ],
       searchOptions: { fields: ["code", "first_name"] },
+      editSettings: {
+        allowEditing: true,
+        allowAdding: true,
+        allowDeleting: true,
+        mode: "Dialog",
+      },
       valueAccess: function (_: string, data: any): string {
         return data.state ? "yes" : "no";
       },
@@ -61,7 +75,7 @@ export default Vue.extend({
   },
 
   provide: {
-    grid: [Page, Sort, Filter, Toolbar, Search],
+    grid: [Page, Sort, Filter, Toolbar, Search, Edit],
   },
 });
 </script>
