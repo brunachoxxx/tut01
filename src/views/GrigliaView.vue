@@ -1,4 +1,3 @@
-import Vue from 'vue';
 <template>
   <div class="about">
     <h1 class="text-center">{{ $t("grid") }}</h1>
@@ -37,18 +36,20 @@ import Vue from 'vue';
 <script lang="ts">
 import Vue from "vue";
 import { dataDB } from "../db";
-import { Page, Sort, Filter } from "@syncfusion/ej2-vue-grids";
+//import { Page, Sort, Filter, Toolbar, Search } from "@syncfusion/ej2-vue-grids";
+
 export default Vue.extend({
   name: "GrigliaView",
   data() {
     return {
       localData: dataDB,
-      pageSettings: { pageSizes: true, pageSize: 20 },
-      provide: {
-        grid: [Page, Sort, Filter],
-      },
+      pageSettings: { pageSize: 20 },
+      toolbarOptions: ["Search"],
+      /*  provide: {
+        grid: [Page, Sort, Filter, Toolbar, Search],
+      }, */
       valueAccess: function (_: string, data: any): string {
-        return data.state ? "Yes" : "No";
+        return data.state ? "yes" : "no";
       },
     };
   },

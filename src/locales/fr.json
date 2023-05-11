@@ -4,5 +4,7 @@
   "contact": "contactez-nous",
   "fetch": "Récupérer des données",
   "loading": "Chargement ...",
-  "grid": "Grille"
+  "grid": "Grille",
+  "yes": "Oui",
+  "no": "Non"
 }

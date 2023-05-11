@@ -4,5 +4,7 @@
   "contact": "Contact",
   "fetch": "Fetch Data",
   "loading": "Loading ...",
-  "grid": "Grid"
+  "grid": "Grid",
+  "yes": "Yes",
+  "no": "No"
 }

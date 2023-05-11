@@ -9,10 +9,21 @@
 <script lang="ts">
 import Vue from "vue";
 import LayoutComp from "@/components/LayoutComp.vue";
-import { GridPlugin, Page, Sort, Filter } from "@syncfusion/ej2-vue-grids";
+import {
+  GridPlugin,
+  PagerPlugin,
+  Page,
+  Sort,
+  Filter,
+  Toolbar,
+  Search,
+} from "@syncfusion/ej2-vue-grids";
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 import { DialogPlugin } from "@syncfusion/ej2-vue-popups";
+import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
 
+Vue.use(ToolbarPlugin);
+Vue.use(PagerPlugin);
 Vue.use(DialogPlugin);
 Vue.use(ButtonPlugin);
 Vue.use(GridPlugin);
@@ -23,7 +34,7 @@ export default Vue.extend({
   data: () => ({
     //
     provide: {
-      grid: [Page, Sort, Filter],
+      grid: [Page, Sort, Filter, Toolbar, Search],
     },
   }),
 });
