@@ -33,9 +33,6 @@ export default Vue.extend({
   components: { LayoutComp },
   data: () => ({
     //
-    provide: {
-      grid: [Page, Sort, Filter, Toolbar, Search],
-    },
   }),
 });
 </script>

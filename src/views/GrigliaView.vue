@@ -3,11 +3,12 @@
     <h1 class="text-center">{{ $t("grid") }}</h1>
     <ejs-grid
       ref="grid"
+      :allowSorting="true"
+      :allowFiltering="true"
       :dataSource="localData"
       :allowPaging="true"
       :pageSettings="pageSettings"
-      :allowSorting="true"
-      :allowFiltering="true"
+      :toolbar="toolbarOptions"
     >
       <e-columns>
         <e-column
@@ -36,7 +37,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { dataDB } from "../db";
-//import { Page, Sort, Filter, Toolbar, Search } from "@syncfusion/ej2-vue-grids";
+import { Page, Sort, Filter, Toolbar, Search } from "@syncfusion/ej2-vue-grids";
 
 export default Vue.extend({
   name: "GrigliaView",
@@ -45,13 +46,14 @@ export default Vue.extend({
       localData: dataDB,
       pageSettings: { pageSize: 20 },
       toolbarOptions: ["Search"],
-      /*  provide: {
-        grid: [Page, Sort, Filter, Toolbar, Search],
-      }, */
       valueAccess: function (_: string, data: any): string {
         return data.state ? "yes" : "no";
       },
     };
+  },
+
+  provide: {
+    grid: [Page, Sort, Filter, Toolbar, Search],
   },
 });
 </script>
