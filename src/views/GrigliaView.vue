@@ -46,7 +46,13 @@ export default Vue.extend({
     return {
       localData: dataDB,
       pageSettings: { pageSize: 20 },
-      toolbarOptions: ["Search"],
+      toolbarOptions: [
+        "Search",
+        "Add",
+        "PdfExport",
+        "ExcelExport",
+        "CsvExport",
+      ],
       searchOptions: { fields: ["code", "first_name"] },
       valueAccess: function (_: string, data: any): string {
         return data.state ? "yes" : "no";
