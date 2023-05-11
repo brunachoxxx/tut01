@@ -7,14 +7,37 @@ import Vue from 'vue';
       :dataSource="localData"
       :allowPaging="true"
       :pageSettings="pageSettings"
-    ></ejs-grid>
+      :allowSorting="true"
+      :allowFiltering="true"
+    >
+      <e-columns>
+        <e-column
+          field="id"
+          :visible="false"
+          headerText="Item Id"
+          textAlign="Center"
+        ></e-column>
+        <e-column
+          field="first_name"
+          headerText="Name"
+          textAlign="Center"
+        ></e-column>
+        <e-column field="code" headerText="Code" textAlign="Center"></e-column>
+        <e-column
+          field="state"
+          headerText="state"
+          textAlign="Center"
+          :valueAccessor="valueAccess"
+        ></e-column>
+      </e-columns>
+    </ejs-grid>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import { dataDB } from "../db";
-import { Page } from "@syncfusion/ej2-vue-grids";
+import { Page, Sort, Filter } from "@syncfusion/ej2-vue-grids";
 export default Vue.extend({
   name: "GrigliaView",
   data() {
@@ -22,7 +45,10 @@ export default Vue.extend({
       localData: dataDB,
       pageSettings: { pageSizes: true, pageSize: 20 },
       provide: {
-        grid: [Page],
+        grid: [Page, Sort, Filter],
+      },
+      valueAccess: function (_: string, data: any): string {
+        return data.state ? "Yes" : "No";
       },
     };
   },
