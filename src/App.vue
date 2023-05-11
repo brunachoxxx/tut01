@@ -9,15 +9,7 @@
 <script lang="ts">
 import Vue from "vue";
 import LayoutComp from "@/components/LayoutComp.vue";
-import {
-  GridPlugin,
-  PagerPlugin,
-  Page,
-  Sort,
-  Filter,
-  Toolbar,
-  Search,
-} from "@syncfusion/ej2-vue-grids";
+import { GridPlugin, PagerPlugin } from "@syncfusion/ej2-vue-grids";
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 import { DialogPlugin } from "@syncfusion/ej2-vue-popups";
 import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";

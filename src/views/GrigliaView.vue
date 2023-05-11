@@ -8,6 +8,7 @@
       :dataSource="localData"
       :allowPaging="true"
       :pageSettings="pageSettings"
+      :searchSettings="searchOptions"
       :toolbar="toolbarOptions"
     >
       <e-columns>
@@ -46,6 +47,7 @@ export default Vue.extend({
       localData: dataDB,
       pageSettings: { pageSize: 20 },
       toolbarOptions: ["Search"],
+      searchOptions: { fields: ["code", "first_name"] },
       valueAccess: function (_: string, data: any): string {
         return data.state ? "yes" : "no";
       },
