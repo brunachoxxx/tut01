@@ -11,30 +11,39 @@
       :searchSettings="searchOptions"
       :editSettings="editSettings"
       :toolbar="toolbarOptions"
+      :filterSettings="filterOptions"
     >
       <e-columns>
+        <e-column
+          headerText="Commands"
+          width="120"
+          :commands="commands"
+        ></e-column>
         <e-column
           field="id"
           :visible="false"
           headerText="Item Id"
           textAlign="Center"
+          :validationRules="customerIDRules"
         ></e-column>
         <e-column
           field="first_name"
           headerText="Description"
           textAlign="Center"
+          :validationRules="customeDescriptionRules"
         ></e-column>
-        <e-column field="code" headerText="Code" textAlign="Center"></e-column>
+        <e-column
+          field="code"
+          headerText="Code"
+          textAlign="Center"
+          editType="boolanEdit"
+          :edit="boolParams"
+        ></e-column>
         <e-column
           field="state"
           headerText="state"
           textAlign="Center"
           :valueAccessor="valueAccess"
-        ></e-column>
-        <e-column
-          headerText="Commands"
-          width="120"
-          :commands="commands"
         ></e-column>
       </e-columns>
     </ejs-grid>
@@ -68,12 +77,16 @@ export default Vue.extend({
         "CsvExport",
       ],
       searchOptions: { fields: ["code", "first_name"] },
+      filterOptions: { fields: ["code", "first_name", "state"] },
       editSettings: {
         allowEditing: true,
         allowAdding: true,
         allowDeleting: true,
         mode: "Dialog",
       },
+      customerIDRules: { unique: true },
+      customeDescriptionRules: { minLength: 3, maxLength: 20 },
+      boolParams: { params: { checked: true } },
       valueAccess: function (_: string, data: any): string {
         return data.state ? "yes" : "no";
       },
