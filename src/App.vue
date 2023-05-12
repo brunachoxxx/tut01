@@ -10,7 +10,7 @@
 import Vue from "vue";
 import LayoutComp from "@/components/LayoutComp.vue";
 import { GridPlugin, PagerPlugin } from "@syncfusion/ej2-vue-grids";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ButtonPlugin, SwitchPlugin } from "@syncfusion/ej2-vue-buttons";
 import { DialogPlugin } from "@syncfusion/ej2-vue-popups";
 import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
 
@@ -19,6 +19,7 @@ Vue.use(PagerPlugin);
 Vue.use(DialogPlugin);
 Vue.use(ButtonPlugin);
 Vue.use(GridPlugin);
+Vue.use(SwitchPlugin);
 
 export default Vue.extend({
   name: "App",

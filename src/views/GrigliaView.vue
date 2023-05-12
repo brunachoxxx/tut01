@@ -32,17 +32,14 @@
           textAlign="Center"
           :validationRules="customeDescriptionRules"
         ></e-column>
-        <e-column
-          field="code"
-          headerText="Code"
-          textAlign="Center"
-          editType="boolanEdit"
-          :edit="boolParams"
-        ></e-column>
+        <e-column field="code" headerText="Code" textAlign="Center"></e-column>
         <e-column
           field="state"
           headerText="state"
           textAlign="Center"
+          type="boolean"
+          editType="booleanEdit"
+          :edit="boolParams"
           :valueAccessor="valueAccess"
         ></e-column>
       </e-columns>
@@ -82,8 +79,8 @@ export default Vue.extend({
         allowEditing: true,
         allowAdding: true,
         allowDeleting: true,
-        showDeleteConfirmDialog: true,
         showConfirmDialog: true,
+        showDeleteConfirmDialog: true,
         mode: "Dialog",
       },
       customerIDRules: { unique: true },
