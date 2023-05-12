@@ -82,6 +82,8 @@ export default Vue.extend({
         allowEditing: true,
         allowAdding: true,
         allowDeleting: true,
+        showDeleteConfirmDialog: true,
+        showConfirmDialog: true,
         mode: "Dialog",
       },
       customerIDRules: { unique: true },
