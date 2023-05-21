@@ -5,6 +5,7 @@ import ChisiamoView from "../views/ChisiamoView.vue";
 import ContattiView from "../views/ContattiView.vue";
 import GrigliaView from "../views/GrigliaView.vue";
 import NotFound from "../views/NotFound.vue";
+import DinamicGrid from "../views/DinamicGrid.vue";
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
@@ -32,6 +33,11 @@ const routes: Array<RouteConfig> = [
     path: "*",
     name: "NotFound",
     component: NotFound,
+  },
+  {
+    path: "/dgriglia",
+    name: "DinamicGrid",
+    component: DinamicGrid,
   },
 ];
 

@@ -72,6 +72,7 @@ export default Vue.extend({
       { title: "about", icon: "mdi-group", path: "/chisiamo" },
       { title: "contact", icon: "mdi-help-box", path: "/contatti" },
       { title: "grid", icon: "mdi-grid", path: "/griglia" },
+      { title: "dynamic grid", icon: "mdi-grid", path: "/dgriglia" },
     ],
     langs: [
       { name: "Italian", value: "it" },

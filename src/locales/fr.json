@@ -5,6 +5,7 @@
   "fetch": "Récupérer des données",
   "loading": "Chargement ...",
   "grid": "Grille",
+  "dynamic grid": "Grille Dynamique",
   "yes": "Oui",
   "no": "Non"
 }

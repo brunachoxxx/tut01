@@ -5,6 +5,7 @@
   "fetch": "Fetch Data",
   "loading": "Loading ...",
   "grid": "Grid",
+  "dynamic grid": "Dynamic Grid",
   "yes": "Yes",
   "no": "No"
 }
