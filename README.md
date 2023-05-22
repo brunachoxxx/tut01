@@ -8,6 +8,8 @@ internship made by Bruno Frontini
 
 https://tut01-3zxq.vercel.app/
 
+but without syncfusion keys
+
 ## Project setup
 
 ```
