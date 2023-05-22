@@ -4,6 +4,10 @@
 
 internship made by Bruno Frontini
 
+## already deployed at:
+
+https://tut01-3zxq.vercel.app/
+
 ## Project setup
 
 ```
