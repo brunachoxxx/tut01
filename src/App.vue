@@ -13,7 +13,9 @@ import { GridPlugin, PagerPlugin } from "@syncfusion/ej2-vue-grids";
 import { ButtonPlugin, SwitchPlugin } from "@syncfusion/ej2-vue-buttons";
 import { DialogPlugin } from "@syncfusion/ej2-vue-popups";
 import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
+import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
 
+Vue.use(ComboBoxPlugin);
 Vue.use(ToolbarPlugin);
 Vue.use(PagerPlugin);
 Vue.use(DialogPlugin);

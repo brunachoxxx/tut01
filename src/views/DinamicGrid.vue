@@ -6,12 +6,10 @@
       :allowSorting="true"
       :allowFiltering="true"
       :allowPaging="true"
-      :dataSource="rData"
+      :dataSource="data"
       :pageSettings="pageSettings"
-      :searchSettings="searchOptions"
       :editSettings="editSettings"
       :toolbar="toolbarOptions"
-      :filterSettings="filterOptions"
     >
     </ejs-grid>
     <v-snackbar v-model="snackbar" :timeout="timeout">
@@ -38,6 +36,7 @@ import {
   CommandColumn,
 } from "@syncfusion/ej2-vue-grids";
 import { Ajax } from "@syncfusion/ej2-base";
+
 export default Vue.extend({
   name: "DinamicGrid",
   data() {
@@ -45,17 +44,17 @@ export default Vue.extend({
       snackbar: false,
       sbText: "",
       timeout: 2000,
-      rData: {},
+      data: {},
       pageSettings: { pageSize: 20 },
       toolbarOptions: [
         "Search",
         "Add",
+        "Edit",
         "PdfExport",
         "ExcelExport",
         "CsvExport",
       ],
-      searchOptions: { fields: ["code", "description"] },
-      filterOptions: { fields: ["code", "description", "state"] },
+
       editSettings: {
         allowEditing: true,
         allowAdding: true,
@@ -64,33 +63,6 @@ export default Vue.extend({
         showDeleteConfirmDialog: true,
         mode: "Dialog",
       },
-      customerIDRules: { unique: true },
-      customeDescriptionRules: { minLength: 3, maxLength: 20 },
-      boolParams: { params: { checked: true } },
-      valueAccess: function (_: string, data: any): string {
-        return data.state ? "yes" : "no";
-      },
-      commands: [
-        {
-          type: "Edit",
-          buttonOption: { cssClass: "e-flat", iconCss: "e-edit e-icons" },
-        },
-        {
-          type: "Delete",
-          buttonOption: { cssClass: "e-flat", iconCss: "e-delete e-icons" },
-        },
-        {
-          type: "Save",
-          buttonOption: { cssClass: "e-flat", iconCss: "e-update e-icons" },
-        },
-        {
-          type: "Cancel",
-          buttonOption: {
-            cssClass: "e-flat",
-            iconCss: "e-cancel-icon e-icons",
-          },
-        },
-      ],
     };
   },
 
@@ -112,8 +84,8 @@ export default Vue.extend({
           },
         });
         ajax.send().then((response: any) => {
-          this.rData = JSON.parse(response).results;
-          console.log(this.rData);
+          this.data = JSON.parse(response).results;
+          console.log(this.data);
         });
 
         ajax.onFailure = function (error: any) {
