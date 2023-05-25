@@ -51,6 +51,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { dataDB } from "../db";
+
 import {
   Page,
   Sort,
@@ -63,6 +64,7 @@ import {
 
 export default Vue.extend({
   name: "GrigliaView",
+
   data() {
     return {
       localData: dataDB,
@@ -87,9 +89,7 @@ export default Vue.extend({
       customerIDRules: { unique: true },
       customeDescriptionRules: { minLength: 3, maxLength: 20 },
       boolParams: { params: { checked: true } },
-      valueAccess: function (_: string, data: any): string {
-        return data.state ? "yes" : "no";
-      },
+
       commands: [
         {
           type: "Edit",
@@ -113,7 +113,11 @@ export default Vue.extend({
       ],
     };
   },
-
+  methods: {
+    valueAccess: function (_: string, data: any) {
+      return data.state ? this.$t("yes") : this.$t("no");
+    },
+  },
   provide: {
     grid: [Page, Sort, Filter, Toolbar, Search, Edit, CommandColumn],
   },

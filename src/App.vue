@@ -9,12 +9,14 @@
 <script lang="ts">
 import Vue from "vue";
 import LayoutComp from "@/components/LayoutComp.vue";
+import VueI18n from "vue-i18n";
 import { GridPlugin, PagerPlugin } from "@syncfusion/ej2-vue-grids";
 import { ButtonPlugin, SwitchPlugin } from "@syncfusion/ej2-vue-buttons";
 import { DialogPlugin } from "@syncfusion/ej2-vue-popups";
 import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
 import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
 
+Vue.use(VueI18n);
 Vue.use(ComboBoxPlugin);
 Vue.use(ToolbarPlugin);
 Vue.use(PagerPlugin);
